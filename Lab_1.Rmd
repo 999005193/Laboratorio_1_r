@@ -120,10 +120,10 @@ students_projection <- function(result_students){
  }
 } 
 
-
-print(paste("On row", row, "and column", col, "contains", result_students[row,col]))
 ```
+
 6.3. Pruebe la función haciendo un llamado a la misma.
+
 ```{r}
 students_projection(result_students)
 ```
