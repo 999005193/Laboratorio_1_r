@@ -3,6 +3,8 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+999005193 - Marlon Peralta
+
 1. Vectores y matrices
 1.1 Registro de notas de 5 estudiantes en vectores
 ```{r}
@@ -76,6 +78,53 @@ students_grades_df
 ```
 5.2. Utilice la función subset en students_grades_df para filtrar por la siguiente condición: Que la columna Accounting sea mayor a 80 y que Legal_age sea verdadero.
 ```{r}
+subset(students_grades_df, subset = Accounting > 80 & Legal_age == TRUE)
+```
+6. Funciones, Condicionales y Bucles
+6.1. Construya una función de nombre students_projection que recorra la matriz
+result_students.
+```{r}
+students_projection <- function(result_students){
+ for(row in 1:nrow(result_students)){
+   for(col in 1:ncol(result_students[,1:4])){
+   print(paste("On row", row, "and column", col, "contains", result_students[row,col]))
+   }
+ } 
+}
+ 
+for(col in 1:ncol(result_students) < 4){
+   print(col)
+   }
+ 
+students_projection(result_students)
 
+```
+6.2. Al recorrer filas y columnas obtendrá el valor de la nota que se encuentra en cada
+celda de la matriz, con este valor aplique las siguientes condiciones para imprimir un
+mensaje:
+```{r}
+students_projection <- function(result_students){
+ for(row in 1:nrow(result_students)){
+   for(col in 1:ncol(result_students[,1:4])){
+      if(result_students[row,col] <= 45){
+         print(paste("nota: ", result_students[row,col], "Student at risk"))
+      }
+      if(result_students[row,col] > 45 & result_students[row,col] < 61){
+         print(paste("nota: ", result_students[row,col], "Student may be approved"))
+      }  
+      if(result_students[row,col] >= 61){
+         print(paste("nota: ", result_students[row,col], "Student approved"))
+      }  
+    }
+      
+ }
+} 
+
+
+print(paste("On row", row, "and column", col, "contains", result_students[row,col]))
+```
+6.3. Pruebe la función haciendo un llamado a la misma.
+```{r}
+students_projection(result_students)
 ```
 
